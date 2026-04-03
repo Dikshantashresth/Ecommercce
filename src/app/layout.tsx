@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import CartDrawer from "@/components/cart/CartDrawer";
 import ToastContainer from "@/components/ui/Toast";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-zinc-950 text-zinc-100 min-h-screen selection:bg-teal-500/30 selection:text-teal-200 antialiased`}
+        className={`${inter.className} bg-gray-50 dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 min-h-screen selection:bg-teal-500/30 selection:text-teal-200 antialiased transition-colors duration-200`}
       >
-        {children}
-        <CartDrawer />
-        <ToastContainer />
+        <ThemeProvider>
+          {children}
+          <CartDrawer />
+          <ToastContainer />
+        </ThemeProvider>
       </body>
     </html>
   );

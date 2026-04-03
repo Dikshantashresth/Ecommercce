@@ -14,7 +14,6 @@ interface ToastData {
 
 let toastId = 0;
 
-// Global toast function — call from anywhere
 export function showToast(message: string, type: ToastType = 'success') {
   document.dispatchEvent(
     new CustomEvent('show-toast', { detail: { id: ++toastId, message, type } })
@@ -39,9 +38,9 @@ export default function ToastContainer() {
   }, [removeToast]);
 
   const icons = {
-    success: <CheckCircle className="h-5 w-5 text-emerald-400 flex-shrink-0" />,
-    error: <XCircle className="h-5 w-5 text-red-400 flex-shrink-0" />,
-    warning: <AlertTriangle className="h-5 w-5 text-amber-400 flex-shrink-0" />,
+    success: <CheckCircle className="h-5 w-5 text-emerald-500 flex-shrink-0" />,
+    error: <XCircle className="h-5 w-5 text-red-500 flex-shrink-0" />,
+    warning: <AlertTriangle className="h-5 w-5 text-amber-500 flex-shrink-0" />,
   };
 
   const borders = {
@@ -60,14 +59,11 @@ export default function ToastContainer() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, x: 60, scale: 0.95 }}
             transition={{ duration: 0.25 }}
-            className={`flex items-center gap-3 bg-zinc-900/95 backdrop-blur-lg px-4 py-3 rounded-xl border ${borders[toast.type]} shadow-2xl`}
+            className={`flex items-center gap-3 bg-white dark:bg-zinc-900/95 backdrop-blur-lg px-4 py-3 rounded-xl border ${borders[toast.type]} shadow-lg dark:shadow-2xl`}
           >
             {icons[toast.type]}
-            <span className="text-sm text-zinc-200 flex-1">{toast.message}</span>
-            <button
-              onClick={() => removeToast(toast.id)}
-              className="text-zinc-500 hover:text-zinc-300 transition-colors"
-            >
+            <span className="text-sm text-gray-800 dark:text-zinc-200 flex-1">{toast.message}</span>
+            <button onClick={() => removeToast(toast.id)} className="text-gray-400 dark:text-zinc-500 hover:text-gray-700 dark:hover:text-zinc-300 transition-colors">
               <X className="h-4 w-4" />
             </button>
           </motion.div>

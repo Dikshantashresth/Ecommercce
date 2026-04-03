@@ -30,9 +30,9 @@ export const mockProducts: Product[] = [
     description:
       "Automated bean-to-cup coffee machine with app control and precision brewing.",
     image:
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800&auto=format&fit=crop",
+      "https://images.pexels.com/photos/34836209/pexels-photo-34836209.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
+    
       "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
       "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
     ],
@@ -63,7 +63,7 @@ export const mockProducts: Product[] = [
     description:
       "Fully automated indoor greenhouse system with real-time monitoring.",
     image:
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4ce11?q=80&w=800&auto=format&fit=crop",
+      "https://images.pexels.com/photos/29659163/pexels-photo-29659163.jpeg",
     images: [
       "https://images.unsplash.com/photo-1585320806297-9794b3e4ce11",
       "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
@@ -97,7 +97,7 @@ export const mockProducts: Product[] = [
     image:
       "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop",
     images: [
-      "https://images.unsplash.com/photo-1558002038-1055907df827",
+      "https://images.pexels.com/photos/27443421/pexels-photo-27443421.jpeg",
       "https://images.unsplash.com/photo-1518449037947-93d1c8c3c54c",
     ],
     category: "Hubs",
@@ -126,9 +126,9 @@ export const mockProducts: Product[] = [
     price: 129.99,
     description: "Weather-aware irrigation system that optimizes water usage.",
     image:
-      "https://images.unsplash.com/photo-1416879598553-337fae0df0ba?q=80&w=800&auto=format&fit=crop",
+      "https://images.pexels.com/photos/27443421/pexels-photo-27443421.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1416879598553-337fae0df0ba",
+      "https://images.pexels.com/photos/27443421/pexels-photo-27443421.jpeg",
       "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
     ],
     category: "Garden",
