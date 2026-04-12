@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import CartDrawer from "@/components/cart/CartDrawer";
 import ToastContainer from "@/components/ui/Toast";
+import EnquiryModal from "@/components/ui/EnquiryModal";
 import ThemeProvider from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Inovate - Automation eCommerce",
+  title: "Neuraforge - Automation eCommerce",
   description: "Your hub for premium smart automation technology.",
 };
 
@@ -24,7 +24,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           {children}
-          <CartDrawer />
+          <EnquiryModal />
           <ToastContainer />
         </ThemeProvider>
       </body>

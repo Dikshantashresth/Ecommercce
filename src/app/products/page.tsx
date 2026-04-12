@@ -7,12 +7,10 @@ import ProductGrid from '@/components/home/ProductGrid';
 import { mockProducts } from '@/data/products';
 import { SlidersHorizontal, ChevronDown } from 'lucide-react';
 
-type SortOption = 'latest' | 'price-asc' | 'price-desc' | 'rating' | 'name-asc';
+type SortOption = 'latest' | 'rating' | 'name-asc';
 
 const sortLabels: Record<SortOption, string> = {
   latest: 'Latest',
-  'price-asc': 'Price: Low → High',
-  'price-desc': 'Price: High → Low',
   rating: 'Top Rated',
   'name-asc': 'Name: A → Z',
 };
@@ -28,8 +26,6 @@ export default function ProductsPage() {
     let list = [...mockProducts];
     if (category !== 'All') list = list.filter((p) => p.category === category);
     switch (sortBy) {
-      case 'price-asc': list.sort((a, b) => a.price - b.price); break;
-      case 'price-desc': list.sort((a, b) => b.price - a.price); break;
       case 'rating': list.sort((a, b) => b.rating - a.rating); break;
       case 'name-asc': list.sort((a, b) => a.name.localeCompare(b.name)); break;
     }

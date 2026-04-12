@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface User {
   username: string;
@@ -16,8 +16,8 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       user: null,
       login: (username: string) => {
-        if (username === 'user123') {
-          set({ user: { username: 'user123' } });
+        if (username === "user123") {
+          set({ user: { username: "user123" } });
           return true;
         }
         return false;
@@ -25,7 +25,7 @@ export const useAuthStore = create<AuthState>()(
       logout: () => set({ user: null }),
     }),
     {
-      name: 'inovate-auth',
-    }
-  )
+      name: "neuraforge-auth",
+    },
+  ),
 );

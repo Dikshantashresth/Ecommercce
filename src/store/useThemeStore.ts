@@ -1,7 +1,7 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-type Theme = 'light' | 'dark';
+type Theme = "light" | "dark";
 
 interface ThemeState {
   theme: Theme;
@@ -12,11 +12,11 @@ interface ThemeState {
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
-      theme: 'dark',
+      theme: "dark",
       toggleTheme: () =>
-        set((state) => ({ theme: state.theme === 'dark' ? 'light' : 'dark' })),
+        set((state) => ({ theme: state.theme === "dark" ? "light" : "dark" })),
       setTheme: (t) => set({ theme: t }),
     }),
-    { name: 'inovate-theme' }
-  )
+    { name: "neuraforge-theme" },
+  ),
 );

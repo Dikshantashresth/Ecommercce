@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useReviewStore } from '@/store/useReviewStore';
 import { useAuthStore } from '@/store/useAuthStore';
 import { showToast } from '@/components/ui/Toast';
@@ -61,12 +61,19 @@ function StarRating({
 
 function RatingBreakdown({ productId }: { productId: string }) {
 
-  const allReviews = useReviewStore((s) => s.getReviewsForProduct(productId));
-  const reviews = allReviews.filter((r) => r.productId === productId);
-  const counts = [5, 4, 3, 2, 1].map((star) => ({
-    star,
-    count: reviews.filter((r) => r.rating === star).length,
-  }));
+  const allReviews = useReviewStore((s) => s.reviews);
+
+  const reviews = useMemo(() => {
+    return allReviews.filter((r) => r.productId === productId);
+  }, [allReviews, productId]);
+
+  const counts = useMemo(() => {
+    return [5, 4, 3, 2, 1].map((star) => ({
+      star,
+      count: reviews.filter((r) => r.rating === star).length,
+    }));
+  }, [reviews]);
+
   const total = reviews.length || 1;
 
   return (
@@ -89,8 +96,25 @@ function RatingBreakdown({ productId }: { productId: string }) {
 }
 
 export default function ReviewSection({ productId }: { productId: string }) {
-  const reviews = useReviewStore((s) => s.getReviewsForProduct(productId));
-  const { avg, count } = useReviewStore((s) => s.getAverageRating(productId));
+ const allReviews = useReviewStore((s) => s.reviews);
+
+ const reviews = useMemo(() => {
+   return allReviews
+     .filter((r) => r.productId === productId)
+     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+ }, [allReviews, productId]);
+
+ const { avg, count } = useMemo(() => {
+   const count = reviews.length;
+   const avg =
+     count === 0
+       ? 0
+       : Math.round(
+           (reviews.reduce((sum, r) => sum + r.rating, 0) / count) * 10,
+         ) / 10;
+
+   return { avg, count };
+ }, [reviews]);
   const addReview = useReviewStore((s) => s.addReview);
   const user = useAuthStore((s) => s.user);
 
