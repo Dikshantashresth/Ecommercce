@@ -31,7 +31,7 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = (e: React.SubmitEvent) => {
     e.preventDefault();
     const trimmed = query.trim();
     if (trimmed) {
