@@ -34,6 +34,7 @@ export default function Navbar() {
   const handleSearch = (e: React.SubmitEvent<HTMLElement>) => {
     e.preventDefault();
     const trimmed = query.trim();
+    console.log(query)
     setQuery("")
     if (trimmed) {
       router.replace(`/search?q=${encodeURIComponent(trimmed)}`);
