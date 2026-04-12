@@ -74,16 +74,18 @@ export default function Navbar() {
             className="flex-1 max-w-xs hidden lg:block"
           >
             <div className="relative group">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search className="h-4 w-4 text-gray-400 dark:text-zinc-500 group-focus-within:text-teal-500 transition-colors" />
-              </div>
               <input
                 type="text"
-                className="block w-full pl-9 pr-4 py-2 border border-gray-300 dark:border-zinc-800 rounded-full bg-gray-100 dark:bg-zinc-900/50 text-gray-900 dark:text-zinc-200 placeholder-gray-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all text-sm"
+                className="block w-full pl-4 pr-4 py-2 border border-gray-300 dark:border-zinc-800 rounded-full bg-gray-100 dark:bg-zinc-900/50 text-gray-900 dark:text-zinc-200 placeholder-gray-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all text-sm"
                 placeholder="Search..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
+              <div className="absolute inset-y-0 right-4 cursor-pointer pl-0 flex items-center">
+                <button type="submit" className="cursor-pointer">
+                  <Search className="h-4 w-4 text-gray-400 dark:text-zinc-500 group-focus-within:text-teal-500 transition-colors" />
+                </button>
+              </div>
             </div>
           </form>
 
