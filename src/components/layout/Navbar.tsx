@@ -31,11 +31,12 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
-  const handleSearch = (e: React.SubmitEvent) => {
+  const handleSearch = (e: React.SubmitEvent<HTMLElement>) => {
     e.preventDefault();
     const trimmed = query.trim();
+    setQuery("")
     if (trimmed) {
-      router.push(`/search?q=${encodeURIComponent(trimmed)}`);
+      router.replace(`/search?q=${encodeURIComponent(trimmed)}`);
       setMobileOpen(false);
     }
   };
