@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { Product } from '@/data/products';
-import { MessageCircle, Mail, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { useEnquiryStore } from '@/store/useEnquiryStore';
+import { Product } from "@/data/products";
+import { MessageCircle, Mail, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEnquiryStore } from "@/store/useEnquiryStore";
 
 export default function ProductCard({ product }: { product: Product }) {
   const router = useRouter();
@@ -13,7 +13,10 @@ export default function ProductCard({ product }: { product: Product }) {
   const handleWhatsApp = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    window.open(`https://wa.me/9779800000000?text=${encodeURIComponent(`Hi, I'm interested in the ${product.name}.`)}`, '_blank');
+    window.open(
+      `https://wa.me/977 986-0783731?text=${encodeURIComponent(`Hi, I'm interested in the ${product.name}.`)}`,
+      "_blank",
+    );
   };
 
   const handleEmail = (e: React.MouseEvent) => {
@@ -27,7 +30,7 @@ export default function ProductCard({ product }: { product: Product }) {
   };
 
   return (
-    <div 
+    <div
       onClick={navigateToDetail}
       className="cursor-pointer group relative bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden transition-transform duration-300 will-change-transform transform-gpu hover:scale-[1.02] hover:-translate-y-1 h-full flex flex-col shadow-sm dark:shadow-none"
     >
@@ -56,7 +59,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <h3 className="text-sm font-bold text-gray-900 dark:text-zinc-100 leading-tight line-clamp-1 mb-1.5 flex-1 p-1">
           {product.name}
         </h3>
-        
+
         <p className="text-xs text-gray-500 dark:text-zinc-500 mb-4 line-clamp-2 px-1">
           {product.description}
         </p>

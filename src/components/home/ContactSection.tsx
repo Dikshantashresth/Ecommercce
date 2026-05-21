@@ -154,7 +154,7 @@ export default function ContactSection() {
                 value={form.phone}
                 onChange={handleChange}
                 className={inputCls}
-                placeholder="+977 9800000000"
+                placeholder="+977  986-0783731"
               />
             </div>
             <div>
