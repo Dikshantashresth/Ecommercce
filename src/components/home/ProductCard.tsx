@@ -14,7 +14,7 @@ export default function ProductCard({ product }: { product: Product }) {
     e.preventDefault();
     e.stopPropagation();
     window.open(
-      `https://wa.me/9779860783731?text=${encodeURIComponent(`Hi, I'm interested in the ${product.name}.`)}`,
+      `https://wa.me/9860783731?text=${encodeURIComponent(`Hi, I'm interested in the ${product.name}.`)}`,
       "_blank",
     );
   };
